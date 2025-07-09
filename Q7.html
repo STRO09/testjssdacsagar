@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        Name: <input type="text" id="name"><br>
+        Email: <input type="text" id="email"><br>
+        Query: <input type="text" id="query"><br>
+        <button id="btn">Submit</button>
+    <script>
+        document.getElementById("btn").addEventListener("click",()=>{
+            
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const query = document.getElementById("query").value;
+
+
+            namereg= ^[A-za-z]$;
+            emailreg = `[^/s@]+@[^/s@]+/.[^/s@/d]`;
+            if(!namereg.test(name)){
+                alert("Name is invalid");
+            }
+        })
+    </script>
+</body>
+</html>
