@@ -14,12 +14,33 @@ function fetchProducts(Products){
     })
 }
 
+async function FetchP(products){
+    try {
+        const a = await fetchProducts(products);
+        console.log("Data fetched with async await: ",a);
+    }
+    catch(e){
+        console.log("Asyncx await error",e);
+    }
+   
 
+}
+
+//b
 LoadProducts =(Products)=> {
 
-    fetchProducts(Products).then((resolve)=>{
+    fetchProducts(Products).then((result)=>{
+        console.log("Then result:",result);
         })
-    .catch(()=>{
-        console.log("")
+    .catch((e)=>{
+        console.log("Then error:",e);
     })
 }
+
+
+
+FetchP(true);
+FetchP(false);
+
+LoadProducts(true);
+LoadProducts(false);

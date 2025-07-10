@@ -19,10 +19,21 @@
             const query = document.getElementById("query").value;
 
 
-            namereg= ^[A-za-z]$;
-            emailreg = `[^/s@]+@[^/s@]+/.[^/s@/d]`;
+            
+            namereg= /^[A-Za-z\s]+$/;
+            emailreg = /[^\s@]+@[^\s@]+\.[^\s@\d]+/;
+            queryreg = /.{1,1000}/;
             if(!namereg.test(name)){
                 alert("Name is invalid");
+            }
+            else if(!emailreg.test(email)){
+                alert("Email is invalid");
+            }
+            else if(!queryreg.test(query)) {
+                alert("Query should not be null and should be less than 1000 characters")
+            }
+            else {
+                alert('Data Submitted successfully')
             }
         })
     </script>

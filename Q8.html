@@ -1,0 +1,54 @@
+<!-- Create a form with fields for name, email, and password. Using JavaScript, 
+implement client-side validation for the following criteria: 
+a. 
+Name: Should contain only alphabetic characters. 
+b. 
+c. 
+Email: Should match a valid email format. 
+Password: Should have a minimum length of 8 characters, including at least 
+one uppercase letter, one lowercase letter, and one digit. 
+d. 
+After validating the form, store the name and email in local storage  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Name: <input type="text" id="name"><br>
+        Email: <input type="text" id="email"><br>
+        Password: <input type="password" id="pass"><br>
+        <button id="btn">Submit</button>
+    <script>
+        document.getElementById("btn").addEventListener("click",()=>{
+            
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const pass = document.getElementById("pass").value;
+
+
+            
+            namereg= /^[A-Za-z\s]+$/;
+            emailreg = /[^\s@]+@[^\s@]+\.[^\s@\d]+/;
+            passreg= /^(?=.*[A-Z])(?=.*[\d])(?=.*[a-z]).{8,}$/;
+            if(!namereg.test(name)){
+                alert("Name is invalid");
+            }
+            else if(!emailreg.test(email)){
+                alert("Email is invalid");
+            }
+            else if(!passreg.test(pass)) {
+                alert("password should contain atleast one uppercase one lowercase and one digit")
+            }
+            else {
+                alert('Data Submitted successfully')
+            }
+        })
+        </script>
+</body>
+</html>
